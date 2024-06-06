@@ -138,3 +138,26 @@ while True:
 
 window.close()
 ```
+
+## Customizing Layouts
+
+Layouts can be customized using the `sg.theme()` function or with the `sg.set_options()` function.
+
+```python
+import PySimpleGUI as sg
+
+sg.theme('DarkAmber')
+sg.set_options(font=('Helvetica', 12))
+
+layout = [
+    [sg.Text('Enter your name:'), sg.InputText(key='name')],
+    [sg.Button('Submit', key='submit')],
+    [sg.Text('Hello, ', key='output')]
+]
+
+window = sg.Window('Customizing Layouts', layout)
+```
+
+The order where we call `sg.theme()` and `sg.set_options()` matters. If we call `sg.theme()` after layout and before window, it'll only apply to the window. If we call it before layout, it'll apply to the layout as well.
+
+We can also overwrite all the customizations inside each individual element.
