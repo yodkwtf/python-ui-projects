@@ -5,3 +5,4 @@ A collection of GUI projects built with Python using PySimpleGui module. This re
 ## List of Projects
 
 1. [Converter](./01-converter/)
+2. [Calculator](./02-calculator/)
