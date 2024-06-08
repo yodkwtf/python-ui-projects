@@ -160,4 +160,16 @@ window = sg.Window('Customizing Layouts', layout)
 
 The order where we call `sg.theme()` and `sg.set_options()` matters. If we call `sg.theme()` after layout and before window, it'll only apply to the window. If we call it before layout, it'll apply to the layout as well.
 
-We can also overwrite all the customizations inside each individual element.
+We can also overwrite all the customizations inside each individual element. Here are some examples:
+
+```python
+sg.Text('Enter your name:', font=('Helvetica', 14))
+
+sg.Text(
+    "Some Text", # text
+    font="Franklin 26", # font and size
+    justification="right", # right align
+    expand_x=True, # expand horizontally
+    pad=(10, 20) # padding
+)
+```
