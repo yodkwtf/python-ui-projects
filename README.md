@@ -7,3 +7,4 @@ A collection of GUI projects built with Python using PySimpleGui module. This re
 1. [Converter](./01-converter/)
 2. [Calculator](./02-calculator/)
 3. [Stopwatch](./03-stopwatch/)
+4. [Text Editor](./04-text-editor/)
