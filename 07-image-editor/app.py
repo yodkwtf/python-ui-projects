@@ -4,8 +4,14 @@ control_col = sg.Column(
     [
         [
             sg.Frame(
+                "Blur",
+                layout=[[sg.Slider((0, 10), orientation="h", key="-BLUR-")]],
+            )
+        ],
+        [
+            sg.Frame(
                 "Contrast",
-                layout=[[sg.Slider((0, 10), orientation="h", key="-BRIGHTNESS-")]],
+                layout=[[sg.Slider((0, 10), orientation="h", key="-CONTRAST-")]],
             )
         ],
         [
@@ -16,7 +22,7 @@ control_col = sg.Column(
         [sg.Button("Save Image", key="-SAVE-")],
     ]
 )
-image_col = []
+image_col = sg.Column([[sg.Image("test.png")]])
 
 layout = [[control_col, image_col]]
 
