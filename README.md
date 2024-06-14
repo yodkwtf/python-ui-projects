@@ -10,3 +10,4 @@ A collection of GUI projects built with Python using PySimpleGui module. This re
 4. [Text Editor](./04-text-editor/)
 5. [Snake Game](./05-snake-game/)
 6. [Graph Plotter](./06-graph-plotter/)
+7. [Image Editor](./07-image-editor/)
