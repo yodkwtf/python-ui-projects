@@ -2,6 +2,10 @@ import PySimpleGUI as sg
 import base64
 from io import BytesIO
 from PIL import Image
+from pygame import mixer, time
+
+mixer.init()
+clock = time.Clock()
 
 
 # function to convert image to base64
@@ -12,6 +16,17 @@ def base64_image_import(path):
     return base64.b64encode(buffered.getvalue())
 
 
+# import song
+song_path = sg.popup_get_file("Select a song to play", no_window=True)
+song_name = song_path.split("/")[-1].split(".")[0]
+song = mixer.Sound(song_path)
+
+# timer
+song_length = int(song.get_length())
+time_since_start = 0
+pause_amount = 0
+is_playing = False
+
 sg.theme("reddit")
 
 # Layouts
@@ -19,7 +34,7 @@ play_layout = [
     [sg.VPush()],
     [
         sg.Push(),
-        sg.Text("Song Name", font=("Helvetica", 15), key="-SONG-"),
+        sg.Text(song_name, font=("Helvetica", 15), key="-SONG-"),
         sg.Push(),
     ],
     [sg.VPush()],
@@ -41,7 +56,7 @@ play_layout = [
         sg.Push(),
     ],
     [sg.VPush()],
-    [sg.Progress(100, orientation="h", size=(20, 20), key="-PROGRESS-")],
+    [sg.Progress(song_length, orientation="h", size=(20, 20), key="-PROGRESS-")],
 ]
 
 volume_layout = [
@@ -50,7 +65,7 @@ volume_layout = [
         sg.Push(),
         sg.Slider(
             range=(0, 100),
-            default_value=50,
+            default_value=10,
             orientation="h",
             size=(20, 15),
             key="-VOLUME-",
@@ -67,9 +82,31 @@ layout = [
 window = sg.Window("Music Player", layout)
 
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=1)
 
     if event == sg.WIN_CLOSED:
         break
+
+    # update progress bar
+    if is_playing:
+        time_since_start = time.get_ticks()
+        window["-PROGRESS-"].update((time_since_start - pause_amount) // 1000)
+
+    # play/pause song
+    if event == "-PLAY-":
+        is_playing = True
+        pause_amount += time.get_ticks() - time_since_start
+        if mixer.get_busy() == False:
+            song.play()
+        else:
+            mixer.unpause()
+
+    if event == "-PAUSE-":
+        is_playing = False
+        mixer.pause()
+
+    # update volume
+    volume = values["-VOLUME-"]
+    song.set_volume(volume / 100)
 
 window.close()
