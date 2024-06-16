@@ -13,3 +13,4 @@ A collection of GUI projects built with Python using PySimpleGui module. This re
 7. [Image Editor](./07-image-editor/)
 8. [Music Player](./08-music-player/)
 9. [Weather App](./09-weather-app/)
+10. [Face Detector](./10-face-detector/)
