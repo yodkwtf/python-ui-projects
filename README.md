@@ -2,7 +2,7 @@
 
 A collection of some small projects built using PySimpleGUI. PySimpleGUI is a Python package that simplifies the creation of GUIs for Python applications. These projects are very fun and different from each other. They are a great way to learn PySimpleGUI and have fun at the same time.
 
-This repository was created to get some hands on experience with Python and build some projects while learning PySimpleGUI.
+This repository was created to get hands-on experience with Python and build projects while learning PySimpleGUI.
 
 ## List of Projects
 
@@ -21,26 +21,26 @@ This repository was created to get some hands on experience with Python and buil
 
 1. Clone the repository.
 
-```bash
-git clone https://github.com/yodkwtf/python-ui-projects.git
-```
+  ```bash
+  git clone https://github.com/yodkwtf/python-ui-projects.git
+  ```
 
 2. Navigate to the project folder.
 
-```bash
-cd python-ui-projects
-```
+  ```bash
+  cd python-ui-projects
+  ```
 
 3. Navigate to the project you want to run.
 
-```bash
-cd 01-converter
-```
+  ```bash
+  cd 01-converter
+  ```
 
 4. Run the Python file.
 
-```bash
-python app.py
-```
+  ```bash
+  python app.py
+  ```
 
 5. Enjoy the project!
